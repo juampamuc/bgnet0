@@ -139,6 +139,8 @@ for i in range(THREAD_COUNT):
 
 for t in threads:
     t.join()
+
+print("All child threads complete!")
 ```
 
 And here's the output:
@@ -156,6 +158,7 @@ Running: Thread2 2
 Running: Thread1 3
 Running: Thread2 3
 Running: Thread2 4
+All child threads complete!
 ```
 
 They're all running at the same time!
