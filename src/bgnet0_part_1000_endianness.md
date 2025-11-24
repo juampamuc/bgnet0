@@ -217,18 +217,21 @@ where the number `0x45f2` was reasonably represented in the order `45
 f2`) is called _big endian_. The byte in the largest value slot (also
 called the _most-significant byte_) is at the front end.
 
-The bad news is that virtually all Intel CPU models are little-endian.
+The bad news is that virtually all Intel CPU models are little-endian,
+as are the Apple M-series. So, effectively, everyone.
 
-The good news is that Mac M1s are big-endian.
+The good news is that **all network numbers are transmitted as
+big-endian**, the sensible way. So we get to think about our bytes in a
+sensible order.
 
-The even better news is that **all network numbers are transmitted as
-big-endian**, the sensible way.
-
-> And when I say "all", I mean "a certain amount"[^—Monty Python]. If
-> both sides agree to transmit in little endian, there's no law against
-> that. This would make sense if the sender and receiver were both
-> little-endian architectures—why waste time reversing bytes just to
-> reverse them back? But the majority of protocols specify big-endian.
+> And when I say "all network numbers", I mean "a certain amount of
+> them"[^—Monty Python]. If both sides agree to transmit in little
+> endian, there's no law against that. This would make sense if the
+> sender and receiver were both little-endian architectures—why waste
+> time reversing bytes just to reverse them back? But the majority of
+> protocols specify big-endian. And generally-speaking it's not a
+> practical issue since most CPUs can reverse bytes in a word really
+> quickly.
 
 Big-endian byte order is called _network byte order_ in network contexts
 for this reason.
